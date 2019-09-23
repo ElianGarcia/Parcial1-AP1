@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Parcial1_AP1.UI.Consultas;
+using Parcial1_AP1.UI.Registros;
+using System;
 using System.Windows.Forms;
 
 namespace Parcial1_AP1
@@ -15,6 +10,20 @@ namespace Parcial1_AP1
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void EvaluacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rEvaluaciones evaluaciones = new rEvaluaciones();
+            evaluaciones.MdiParent = this;
+            evaluaciones.Show();
+        }
+
+        private void EvaluacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cEvaluaciones evaluaciones = new cEvaluaciones();
+            evaluaciones.MdiParent = this;
+            evaluaciones.Show();
         }
     }
 }
