@@ -85,15 +85,15 @@ namespace Parcial1_AP1.UI.Registros
                 EstudiantetextBox.Focus();
                 realizado = false;
             }
-            if (string.IsNullOrWhiteSpace(ValortextBox.Text))
+            if (string.IsNullOrWhiteSpace(ValortextBox.Text) || Convert.ToDecimal(ValortextBox.Text) < 0)
             {
-                errorProvider.SetError(ValortextBox, "El campo Valor no debe estar vacio");
+                errorProvider.SetError(ValortextBox, "El campo Valor no debe estar vacio \n El campo Logrado no debe ser menor que 0");
                 ValortextBox.Focus();
                 realizado = false;
             }
-            if (string.IsNullOrWhiteSpace(LogradotextBox.Text))
+            if (string.IsNullOrWhiteSpace(LogradotextBox.Text) || Convert.ToDecimal(LogradotextBox.Text) < 0)
             {
-                errorProvider.SetError(LogradotextBox, "El campo Logrado no debe estar vacio");
+                errorProvider.SetError(LogradotextBox, "El campo Logrado no debe estar vacio \n El campo Logrado no debe ser menor que 0");
                 LogradotextBox.Focus();
                 realizado = false;
             }

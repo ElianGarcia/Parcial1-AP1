@@ -33,7 +33,7 @@ namespace Parcial1_AP1.BLL.Tests
         [TestMethod()]
         public void EliminarTest()
         {
-            bool realizado = EvaluacionesBLL.Eliminar(1);
+            bool realizado = EvaluacionesBLL.Eliminar(2);
 
             Assert.AreEqual(realizado, true);
         }
