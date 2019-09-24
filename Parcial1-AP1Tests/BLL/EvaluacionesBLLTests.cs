@@ -1,8 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Parcial1_AP1.BLL;
 using Parcial1_AP1.Entidades;
+using Register.DAL;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,8 +26,14 @@ namespace Parcial1_AP1.BLL.Tests
         [TestMethod()]
         public void ModificarTest()
         {
-            Evaluaciones evaluacion = new Evaluaciones(1, "Elian Rodriguez", DateTime.Now, 31, 25, 6, "Continuar");
-            bool realizado = EvaluacionesBLL.Modificar(evaluacion);
+            Evaluaciones evaluacion = new Evaluaciones(1, "Elian Rodriguez", DateTime.Now, 30, 25, 6, "Continuar");
+
+            bool realizado = false;
+
+            Contexto db = new Contexto();
+
+            db.Entry(evaluacion).State = EntityState.Modified;
+            realizado = (db.SaveChanges() > 0);
 
             Assert.AreEqual(realizado, true);
         }
@@ -33,7 +41,13 @@ namespace Parcial1_AP1.BLL.Tests
         [TestMethod()]
         public void EliminarTest()
         {
-            bool realizado = EvaluacionesBLL.Eliminar(2);
+            bool realizado = false;
+            Contexto db = new Contexto();
+            int id = 1;
+
+            var eliminar = db.Evaluacion.Find(id);
+            db.Entry(eliminar).State = EntityState.Deleted;
+            realizado = (db.SaveChanges() > 0);
 
             Assert.AreEqual(realizado, true);
         }
@@ -41,9 +55,19 @@ namespace Parcial1_AP1.BLL.Tests
         [TestMethod()]
         public void BuscarTest()
         {
-            Evaluaciones evaluacion = EvaluacionesBLL.Buscar(1);
+            int id = 1;
+            Evaluaciones e = new Evaluaciones();
+            e = EvaluacionesBLL.Buscar(id);
 
-            Assert.IsNotNull(evaluacion);
+            Assert.IsNotNull(e);
+        }
+
+        [TestMethod()]
+        public void GetListTest()
+        {
+            var listado = new List<Evaluaciones>();
+
+            Assert.IsNotNull(listado);
         }
     }
 }
