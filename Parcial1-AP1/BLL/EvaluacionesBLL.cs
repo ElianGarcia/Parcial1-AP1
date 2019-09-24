@@ -17,7 +17,7 @@ namespace Parcial1_AP1.BLL
 
             try
             {
-                if (db.Entry(evaluaciones) != null)
+                if (db.Evaluacion.Add(evaluaciones) != null)
                 {
                     realizado = db.SaveChanges() > 0;
                 }
@@ -59,12 +59,11 @@ namespace Parcial1_AP1.BLL
         public static bool Eliminar(int Id)
         {
             bool realizado = false;
-            Evaluaciones evaluaciones = new Evaluaciones();
             Contexto db = new Contexto();
 
             try
             {
-                evaluaciones = db.Evaluacion.Find(Id);
+                var evaluaciones = db.Evaluacion.Find(Id);
                 db.Entry(evaluaciones).State = EntityState.Deleted;
                 realizado = db.SaveChanges() > 0;
             }

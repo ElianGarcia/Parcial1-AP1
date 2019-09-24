@@ -35,9 +35,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.PerdidomaskedTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.LogradomaskedTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.ValormaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,6 +47,9 @@
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.Buscarbutton = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.LogradotextBox = new System.Windows.Forms.TextBox();
+            this.ValortextBox = new System.Windows.Forms.TextBox();
+            this.PerdidotextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.IDEvaluacionesnumericUpDown)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -96,9 +96,9 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.PerdidomaskedTextBox);
-            this.panel1.Controls.Add(this.LogradomaskedTextBox);
-            this.panel1.Controls.Add(this.ValormaskedTextBox);
+            this.panel1.Controls.Add(this.PerdidotextBox);
+            this.panel1.Controls.Add(this.ValortextBox);
+            this.panel1.Controls.Add(this.LogradotextBox);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
@@ -108,37 +108,11 @@
             this.panel1.Size = new System.Drawing.Size(472, 69);
             this.panel1.TabIndex = 4;
             // 
-            // PerdidomaskedTextBox
-            // 
-            this.PerdidomaskedTextBox.Enabled = false;
-            this.PerdidomaskedTextBox.Location = new System.Drawing.Point(401, 31);
-            this.PerdidomaskedTextBox.Mask = "00.00";
-            this.PerdidomaskedTextBox.Name = "PerdidomaskedTextBox";
-            this.PerdidomaskedTextBox.Size = new System.Drawing.Size(60, 24);
-            this.PerdidomaskedTextBox.TabIndex = 5;
-            // 
-            // LogradomaskedTextBox
-            // 
-            this.LogradomaskedTextBox.Location = new System.Drawing.Point(211, 31);
-            this.LogradomaskedTextBox.Mask = "00.00";
-            this.LogradomaskedTextBox.Name = "LogradomaskedTextBox";
-            this.LogradomaskedTextBox.Size = new System.Drawing.Size(60, 24);
-            this.LogradomaskedTextBox.TabIndex = 4;
-            // 
-            // ValormaskedTextBox
-            // 
-            this.ValormaskedTextBox.Location = new System.Drawing.Point(13, 31);
-            this.ValormaskedTextBox.Mask = "00.00";
-            this.ValormaskedTextBox.Name = "ValormaskedTextBox";
-            this.ValormaskedTextBox.Size = new System.Drawing.Size(60, 24);
-            this.ValormaskedTextBox.TabIndex = 3;
-            this.ValormaskedTextBox.TextChanged += new System.EventHandler(this.ValormaskedTextBox_TextChanged);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Cursor = System.Windows.Forms.Cursors.No;
-            this.label6.Location = new System.Drawing.Point(398, 11);
+            this.label6.Location = new System.Drawing.Point(388, 11);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 17);
             this.label6.TabIndex = 2;
@@ -148,7 +122,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Cursor = System.Windows.Forms.Cursors.No;
-            this.label5.Location = new System.Drawing.Point(208, 11);
+            this.label5.Location = new System.Drawing.Point(197, 11);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 17);
             this.label5.TabIndex = 1;
@@ -266,6 +240,29 @@
             this.errorProvider.ContainerControl = this;
             this.errorProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider.Icon")));
             // 
+            // LogradotextBox
+            // 
+            this.LogradotextBox.Location = new System.Drawing.Point(200, 31);
+            this.LogradotextBox.Name = "LogradotextBox";
+            this.LogradotextBox.Size = new System.Drawing.Size(66, 24);
+            this.LogradotextBox.TabIndex = 6;
+            this.LogradotextBox.TextChanged += new System.EventHandler(this.LogradotextBox_TextChanged);
+            // 
+            // ValortextBox
+            // 
+            this.ValortextBox.Location = new System.Drawing.Point(13, 31);
+            this.ValortextBox.Name = "ValortextBox";
+            this.ValortextBox.Size = new System.Drawing.Size(66, 24);
+            this.ValortextBox.TabIndex = 7;
+            // 
+            // PerdidotextBox
+            // 
+            this.PerdidotextBox.Enabled = false;
+            this.PerdidotextBox.Location = new System.Drawing.Point(391, 31);
+            this.PerdidotextBox.Name = "PerdidotextBox";
+            this.PerdidotextBox.Size = new System.Drawing.Size(66, 24);
+            this.PerdidotextBox.TabIndex = 8;
+            // 
             // rEvaluaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -302,9 +299,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.MaskedTextBox PerdidomaskedTextBox;
-        private System.Windows.Forms.MaskedTextBox LogradomaskedTextBox;
-        private System.Windows.Forms.MaskedTextBox ValormaskedTextBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -317,5 +311,8 @@
         private System.Windows.Forms.Button Guardarbutton;
         private System.Windows.Forms.Button Nuevobutton;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.TextBox ValortextBox;
+        private System.Windows.Forms.TextBox LogradotextBox;
+        private System.Windows.Forms.TextBox PerdidotextBox;
     }
 }

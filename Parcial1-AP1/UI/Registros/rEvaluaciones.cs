@@ -17,9 +17,9 @@ namespace Parcial1_AP1.UI.Registros
             IDEvaluacionesnumericUpDown.Value = 0;
             EstudiantetextBox.Text = "";
             FechadateTimePicker.Value = DateTime.Now;
-            ValormaskedTextBox.Text = "";
-            PerdidomaskedTextBox.Text = "";
-            LogradomaskedTextBox.Text = "";
+            ValortextBox.Text = "";
+            PerdidotextBox.Text = "";
+            LogradotextBox.Text = "";
             PronosticocomboBox.SelectedItem = 0;
         }
 
@@ -30,9 +30,9 @@ namespace Parcial1_AP1.UI.Registros
             evaluacion.IDEvaluacion =  (int) IDEvaluacionesnumericUpDown.Value;
             evaluacion.Estudiante =  EstudiantetextBox.Text;
             evaluacion.Fecha = FechadateTimePicker.Value;
-            evaluacion.Valor = Decimal.Parse(ValormaskedTextBox.Text);
-            evaluacion.Perdido = Decimal.Parse(PerdidomaskedTextBox.Text);
-            evaluacion.Logrado = Decimal.Parse(LogradomaskedTextBox.Text);
+            evaluacion.Valor = Decimal.Parse(ValortextBox.Text);
+            evaluacion.Perdido = Decimal.Parse(PerdidotextBox.Text);
+            evaluacion.Logrado = Decimal.Parse(LogradotextBox.Text);
             evaluacion.Pronostico = PronosticocomboBox.SelectedItem.ToString();
 
             return evaluacion;
@@ -43,9 +43,9 @@ namespace Parcial1_AP1.UI.Registros
             IDEvaluacionesnumericUpDown.Value = evaluacion.IDEvaluacion;
             EstudiantetextBox.Text = evaluacion.Estudiante;
             FechadateTimePicker.Value = evaluacion.Fecha;
-            ValormaskedTextBox.Text = evaluacion.Valor.ToString();
-            PerdidomaskedTextBox.Text = evaluacion.Perdido.ToString();
-            LogradomaskedTextBox.Text = evaluacion.Logrado.ToString();
+            ValortextBox.Text = evaluacion.Valor.ToString();
+            PerdidotextBox.Text = evaluacion.Perdido.ToString();
+            LogradotextBox.Text = evaluacion.Logrado.ToString();
             PronosticocomboBox.SelectedItem = evaluacion.Pronostico;
         }
 
@@ -65,16 +65,16 @@ namespace Parcial1_AP1.UI.Registros
                 EstudiantetextBox.Focus();
                 realizado = false;
             }
-            if (string.IsNullOrWhiteSpace(ValormaskedTextBox.Text))
+            if (string.IsNullOrWhiteSpace(ValortextBox.Text))
             {
-                errorProvider.SetError(ValormaskedTextBox, "El campo Valor no debe estar vacio");
-                ValormaskedTextBox.Focus();
+                errorProvider.SetError(ValortextBox, "El campo Valor no debe estar vacio");
+                ValortextBox.Focus();
                 realizado = false;
             }
-            if (string.IsNullOrWhiteSpace(LogradomaskedTextBox.Text))
+            if (string.IsNullOrWhiteSpace(LogradotextBox.Text))
             {
-                errorProvider.SetError(LogradomaskedTextBox, "El campo Logrado no debe estar vacio");
-                LogradomaskedTextBox.Focus();
+                errorProvider.SetError(LogradotextBox, "El campo Logrado no debe estar vacio");
+                LogradotextBox.Focus();
                 realizado = false;
             }
 
@@ -98,14 +98,20 @@ namespace Parcial1_AP1.UI.Registros
             {
                 evaluacion = LlenaClase();
 
-                if (!Existe())
+                if(IDEvaluacionesnumericUpDown.Value == 0)
                 {
                     realizado = EvaluacionesBLL.Guardar(evaluacion);
                 }
                 else
                 {
+                    if (!Existe())
+                    {
+                        MessageBox.Show("No se puede modificar porque no existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                     realizado = EvaluacionesBLL.Modificar(evaluacion);
                 }
+                   
 
             } catch (Exception)
             {
@@ -114,6 +120,7 @@ namespace Parcial1_AP1.UI.Registros
 
             if (realizado)
             {
+                LimpiarCampos();
                 MessageBox.Show("Guardado exitosamente!", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             } else
             {
@@ -168,18 +175,18 @@ namespace Parcial1_AP1.UI.Registros
             decimal valor = 0;
             decimal logrado = 0;
 
-            if (ValormaskedTextBox.Text != null)
+            if (!string.IsNullOrWhiteSpace(ValortextBox.Text))
             {
-                valor = decimal.Parse(ValormaskedTextBox.Text);
+                valor = decimal.Parse(ValortextBox.Text);
             }
-            if(LogradomaskedTextBox.Text != null)
+            if(!string.IsNullOrWhiteSpace(LogradotextBox.Text))
             {
-                logrado = decimal.Parse(LogradomaskedTextBox.Text);
+                logrado = decimal.Parse(LogradotextBox.Text);
             }
             
             decimal perdido = valor - logrado;
 
-            PerdidomaskedTextBox.Text = perdido.ToString();
+            PerdidotextBox.Text = perdido.ToString();
 
             if(perdido >= 25 && perdido <= 30)
             {
@@ -190,6 +197,38 @@ namespace Parcial1_AP1.UI.Registros
                 PronosticocomboBox.SelectedItem = 1;
             }
             if(perdido > 30)
+            {
+                PronosticocomboBox.SelectedItem = 3;
+            }
+        }
+
+        private void LogradotextBox_TextChanged(object sender, EventArgs e)
+        {
+            decimal valor = 0;
+            decimal logrado = 0;
+
+            if (!string.IsNullOrWhiteSpace(ValortextBox.Text))
+            {
+                valor = decimal.Parse(ValortextBox.Text);
+            }
+            if (!string.IsNullOrWhiteSpace(LogradotextBox.Text))
+            {
+                logrado = decimal.Parse(LogradotextBox.Text);
+            }
+
+            decimal perdido = valor - logrado;
+
+            PerdidotextBox.Text = perdido.ToString();
+
+            if (perdido >= 25 && perdido <= 30)
+            {
+                PronosticocomboBox.SelectedItem = 2;
+            }
+            if (perdido < 25)
+            {
+                PronosticocomboBox.SelectedItem = 1;
+            }
+            if (perdido > 30)
             {
                 PronosticocomboBox.SelectedItem = 3;
             }
