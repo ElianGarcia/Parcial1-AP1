@@ -18,7 +18,7 @@ namespace Parcial1_AP1.BLL.Tests
             Evaluaciones evaluacion = new Evaluaciones(1, "Elian Garcia", DateTime.Now, 31, 25, 6, "Continuar");
             bool realizado = EvaluacionesBLL.Guardar(evaluacion);
 
-            Assert.AreEqual(realizado, false);
+            Assert.AreEqual(realizado, true);
         }
 
         [TestMethod()]
@@ -27,16 +27,15 @@ namespace Parcial1_AP1.BLL.Tests
             Evaluaciones evaluacion = new Evaluaciones(1, "Elian Rodriguez", DateTime.Now, 31, 25, 6, "Continuar");
             bool realizado = EvaluacionesBLL.Modificar(evaluacion);
 
-            Assert.AreEqual(realizado, false);
+            Assert.AreEqual(realizado, true);
         }
 
         [TestMethod()]
         public void EliminarTest()
         {
-            int id = 1;
-            bool realizado = EvaluacionesBLL.Eliminar(id);
+            bool realizado = EvaluacionesBLL.Eliminar(1);
 
-            Assert.AreEqual(realizado, false);
+            Assert.AreEqual(realizado, true);
         }
 
         [TestMethod()]

@@ -20,7 +20,7 @@ namespace Parcial1_AP1.UI.Registros
             ValortextBox.Text = "";
             PerdidotextBox.Text = "";
             LogradotextBox.Text = "";
-            PronosticocomboBox.SelectedItem = 0;
+            PronosticocomboBox.SelectedIndex = 0;
         }
 
         private Evaluaciones LlenaClase()
@@ -30,10 +30,30 @@ namespace Parcial1_AP1.UI.Registros
             evaluacion.IDEvaluacion =  (int) IDEvaluacionesnumericUpDown.Value;
             evaluacion.Estudiante =  EstudiantetextBox.Text;
             evaluacion.Fecha = FechadateTimePicker.Value;
-            evaluacion.Valor = Decimal.Parse(ValortextBox.Text);
-            evaluacion.Perdido = Decimal.Parse(PerdidotextBox.Text);
-            evaluacion.Logrado = Decimal.Parse(LogradotextBox.Text);
-            evaluacion.Pronostico = PronosticocomboBox.SelectedItem.ToString();
+            try
+            {
+                evaluacion.Valor = Convert.ToDecimal(ValortextBox.Text);
+                evaluacion.Perdido = Convert.ToDecimal(PerdidotextBox.Text);
+                evaluacion.Logrado = Convert.ToDecimal(LogradotextBox.Text);
+            }
+            catch (Exception)
+            {
+                errorProvider.SetError(LogradotextBox, "El campo debe ser numerico");
+            }
+            
+            if(PronosticocomboBox.SelectedIndex == 0)
+            {
+                evaluacion.Pronostico = "Continuar";
+            }
+            if (PronosticocomboBox.SelectedIndex == 1)
+            {
+                evaluacion.Pronostico = "Suspenso";
+            }
+            if (PronosticocomboBox.SelectedIndex == 2)
+            {
+                evaluacion.Pronostico = "Retirar";
+            }
+
 
             return evaluacion;
         }
@@ -139,7 +159,6 @@ namespace Parcial1_AP1.UI.Registros
 
                 if (evaluacion != null)
                 {
-                    MessageBox.Show("Evaluacion encontrada", "Encontrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LlenaCampos(evaluacion);
                 }
                 else
@@ -158,10 +177,18 @@ namespace Parcial1_AP1.UI.Registros
 
             try
             {
-                if (EvaluacionesBLL.Eliminar(Id))
+                if(EvaluacionesBLL.Buscar(Id) != null)
                 {
-                    MessageBox.Show("Eliminada Correctamente", "Eliminada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (EvaluacionesBLL.Eliminar(Id))
+                    {
+                        MessageBox.Show("Eliminada Correctamente", "Eliminada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
+                else
+                {
+                    MessageBox.Show("No se puede eliminar porque no existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
             }
             catch (Exception)
             {
@@ -190,15 +217,15 @@ namespace Parcial1_AP1.UI.Registros
 
             if(perdido >= 25 && perdido <= 30)
             {
-                PronosticocomboBox.SelectedItem = 2;
+                PronosticocomboBox.SelectedIndex = 1;
             }
             if(perdido < 25)
             {
-                PronosticocomboBox.SelectedItem = 1;
+                PronosticocomboBox.SelectedIndex = 0;
             }
             if(perdido > 30)
             {
-                PronosticocomboBox.SelectedItem = 3;
+                PronosticocomboBox.SelectedIndex = 2;
             }
         }
 
@@ -222,15 +249,15 @@ namespace Parcial1_AP1.UI.Registros
 
             if (perdido >= 25 && perdido <= 30)
             {
-                PronosticocomboBox.SelectedItem = 2;
+                PronosticocomboBox.SelectedIndex = 1;
             }
             if (perdido < 25)
             {
-                PronosticocomboBox.SelectedItem = 1;
+                PronosticocomboBox.SelectedIndex = 0;
             }
             if (perdido > 30)
             {
-                PronosticocomboBox.SelectedItem = 3;
+                PronosticocomboBox.SelectedIndex = 2;
             }
         }
     }
