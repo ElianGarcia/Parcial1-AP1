@@ -47,38 +47,39 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ConsultaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ConsultaDataGridView.Location = new System.Drawing.Point(9, 51);
+            this.ConsultaDataGridView.Location = new System.Drawing.Point(9, 55);
             this.ConsultaDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.ConsultaDataGridView.Name = "ConsultaDataGridView";
             this.ConsultaDataGridView.ReadOnly = true;
             this.ConsultaDataGridView.RowTemplate.Height = 24;
-            this.ConsultaDataGridView.Size = new System.Drawing.Size(783, 319);
+            this.ConsultaDataGridView.Size = new System.Drawing.Size(783, 315);
             this.ConsultaDataGridView.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Black", 9F);
+            this.label1.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(294, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 15);
+            this.label1.Size = new System.Drawing.Size(45, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Filtro";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Black", 9F);
+            this.label2.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(430, 9);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 15);
+            this.label2.Size = new System.Drawing.Size(56, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "Criterio";
             // 
             // cbFiltrar
             // 
+            this.cbFiltrar.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFiltrar.FormattingEnabled = true;
             this.cbFiltrar.Items.AddRange(new object[] {
             "Todo",
@@ -87,23 +88,24 @@
             this.cbFiltrar.Location = new System.Drawing.Point(296, 26);
             this.cbFiltrar.Margin = new System.Windows.Forms.Padding(2);
             this.cbFiltrar.Name = "cbFiltrar";
-            this.cbFiltrar.Size = new System.Drawing.Size(92, 21);
+            this.cbFiltrar.Size = new System.Drawing.Size(92, 25);
             this.cbFiltrar.TabIndex = 3;
             // 
             // tbCriterio
             // 
             this.tbCriterio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbCriterio.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCriterio.Location = new System.Drawing.Point(433, 26);
             this.tbCriterio.Margin = new System.Windows.Forms.Padding(2);
             this.tbCriterio.Name = "tbCriterio";
-            this.tbCriterio.Size = new System.Drawing.Size(244, 20);
+            this.tbCriterio.Size = new System.Drawing.Size(244, 24);
             this.tbCriterio.TabIndex = 4;
             // 
             // btConsulta
             // 
             this.btConsulta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btConsulta.Font = new System.Drawing.Font("Segoe UI Black", 9F);
+            this.btConsulta.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btConsulta.Image = global::Parcial1_AP1.Properties.Resources.find;
             this.btConsulta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btConsulta.Location = new System.Drawing.Point(681, 11);
@@ -118,42 +120,44 @@
             // 
             // DesdeDateTimePicker
             // 
+            this.DesdeDateTimePicker.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DesdeDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DesdeDateTimePicker.Location = new System.Drawing.Point(11, 26);
             this.DesdeDateTimePicker.Margin = new System.Windows.Forms.Padding(2);
             this.DesdeDateTimePicker.Name = "DesdeDateTimePicker";
-            this.DesdeDateTimePicker.Size = new System.Drawing.Size(122, 20);
+            this.DesdeDateTimePicker.Size = new System.Drawing.Size(122, 24);
             this.DesdeDateTimePicker.TabIndex = 6;
             // 
             // HastaDateTimePicker
             // 
             this.HastaDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.HastaDateTimePicker.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HastaDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.HastaDateTimePicker.Location = new System.Drawing.Point(151, 26);
             this.HastaDateTimePicker.Margin = new System.Windows.Forms.Padding(2);
             this.HastaDateTimePicker.Name = "HastaDateTimePicker";
-            this.HastaDateTimePicker.Size = new System.Drawing.Size(117, 20);
+            this.HastaDateTimePicker.Size = new System.Drawing.Size(117, 24);
             this.HastaDateTimePicker.TabIndex = 7;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Black", 9F);
+            this.label3.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(146, 9);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 15);
+            this.label3.Size = new System.Drawing.Size(44, 17);
             this.label3.TabIndex = 8;
             this.label3.Text = "Hasta";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Black", 9F);
+            this.label4.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(8, 9);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 15);
+            this.label4.Size = new System.Drawing.Size(43, 17);
             this.label4.TabIndex = 9;
             this.label4.Text = "Desde";
             // 

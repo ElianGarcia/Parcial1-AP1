@@ -15,26 +15,36 @@ namespace Parcial1_AP1.BLL.Tests
         [TestMethod()]
         public void GuardarTest()
         {
-            Evaluaciones evaluacion = new Evaluaciones();
-            Assert.Fail();
+            Evaluaciones evaluacion = new Evaluaciones(1, "Elian Garcia", DateTime.Now, 31, 25, 6, "Continuar");
+            bool realizado = EvaluacionesBLL.Guardar(evaluacion);
+
+            Assert.AreEqual(realizado, false);
         }
 
         [TestMethod()]
         public void ModificarTest()
         {
-            Assert.Fail();
+            Evaluaciones evaluacion = new Evaluaciones(1, "Elian Rodriguez", DateTime.Now, 31, 25, 6, "Continuar");
+            bool realizado = EvaluacionesBLL.Modificar(evaluacion);
+
+            Assert.AreEqual(realizado, false);
         }
 
         [TestMethod()]
         public void EliminarTest()
         {
-            Assert.Fail();
+            int id = 1;
+            bool realizado = EvaluacionesBLL.Eliminar(id);
+
+            Assert.AreEqual(realizado, false);
         }
 
         [TestMethod()]
         public void BuscarTest()
         {
-            Assert.Fail();
+            Evaluaciones evaluacion = EvaluacionesBLL.Buscar(1);
+
+            Assert.IsNotNull(evaluacion);
         }
     }
 }

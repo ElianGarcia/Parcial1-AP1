@@ -124,7 +124,6 @@
             this.LogradomaskedTextBox.Name = "LogradomaskedTextBox";
             this.LogradomaskedTextBox.Size = new System.Drawing.Size(60, 24);
             this.LogradomaskedTextBox.TabIndex = 4;
-            this.LogradomaskedTextBox.TextChanged += new System.EventHandler(this.LogradomaskedTextBox_TextChanged);
             // 
             // ValormaskedTextBox
             // 

@@ -147,7 +147,6 @@ namespace Parcial1_AP1.UI.Registros
         private void Eliminarbutton_Click(object sender, EventArgs e)
         {
             int Id;
-            bool realizado = false;
             int.TryParse(IDEvaluacionesnumericUpDown.Value.ToString(), out Id);
 
             try
@@ -166,27 +165,34 @@ namespace Parcial1_AP1.UI.Registros
 
         private void ValormaskedTextBox_TextChanged(object sender, EventArgs e)
         {
-            decimal perdido = 0;
+            decimal valor = 0;
+            decimal logrado = 0;
 
-            if(LogradomaskedTextBox.Text.Replace(".", "") != null && ValormaskedTextBox.Text.Replace(".", "") != null)
+            if (ValormaskedTextBox.Text != null)
             {
-                perdido = Decimal.Parse(ValormaskedTextBox.Text) - Decimal.Parse(LogradomaskedTextBox.Text);
+                valor = decimal.Parse(ValormaskedTextBox.Text);
             }
+            if(LogradomaskedTextBox.Text != null)
+            {
+                logrado = decimal.Parse(LogradomaskedTextBox.Text);
+            }
+            
+            decimal perdido = valor - logrado;
 
             PerdidomaskedTextBox.Text = perdido.ToString();
 
-        }
-
-        private void LogradomaskedTextBox_TextChanged(object sender, EventArgs e)
-        {
-            decimal perdido = 0;
-
-            if (LogradomaskedTextBox.Text != null && ValormaskedTextBox.Text != null)
+            if(perdido >= 25 && perdido <= 30)
             {
-                perdido = Decimal.Parse(ValormaskedTextBox.Text) - Decimal.Parse(LogradomaskedTextBox.Text);
+                PronosticocomboBox.SelectedItem = 2;
             }
-
-            PerdidomaskedTextBox.Text = perdido.ToString();
+            if(perdido < 25)
+            {
+                PronosticocomboBox.SelectedItem = 1;
+            }
+            if(perdido > 30)
+            {
+                PronosticocomboBox.SelectedItem = 3;
+            }
         }
     }
 }
