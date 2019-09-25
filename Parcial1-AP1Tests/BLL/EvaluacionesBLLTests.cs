@@ -1,13 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Parcial1_AP1.BLL;
 using Parcial1_AP1.Entidades;
 using Register.DAL;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Parcial1_AP1.BLL.Tests
 {

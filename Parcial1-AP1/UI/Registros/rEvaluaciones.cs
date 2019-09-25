@@ -229,16 +229,18 @@ namespace Parcial1_AP1.UI.Registros
             }
         }
 
+        
+
         private void LogradotextBox_TextChanged(object sender, EventArgs e)
         {
             decimal valor = 0;
             decimal logrado = 0;
 
-            if (!string.IsNullOrWhiteSpace(ValortextBox.Text))
+            if (!string.IsNullOrWhiteSpace(ValortextBox.Text) && LogradotextBox.Text != "-")
             {
                 valor = decimal.Parse(ValortextBox.Text);
             }
-            if (!string.IsNullOrWhiteSpace(LogradotextBox.Text))
+            if (!string.IsNullOrWhiteSpace(LogradotextBox.Text) && LogradotextBox.Text != "-")
             {
                 logrado = decimal.Parse(LogradotextBox.Text);
             }
